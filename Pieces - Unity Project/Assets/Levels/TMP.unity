@@ -337,7 +337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e32e494fc6de814a80bcf18c72ad0e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initVel: {x: 3, y: 3, z: 0}
+  initVel: {x: 5, y: 5, z: 0}
   deceleration: 1
 --- !u!1001 &723384517176340559
 PrefabInstance:
