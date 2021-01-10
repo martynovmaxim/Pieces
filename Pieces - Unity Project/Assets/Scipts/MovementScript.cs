@@ -11,8 +11,14 @@ public class MovementScript : MonoBehaviour
     public Vector3 initVel;
     public float deceleration = 0.5f;
 
+    bool stoped = true;
+
+    Manager manager;
+
     void Start()
     {
+        manager = GameObject.FindGameObjectWithTag("Manager").GetComponent<Manager>();
+        manager.AddObject(this);
         transform = gameObject.GetComponent<Transform>();
         velocity = initVel;
     }
@@ -55,15 +61,30 @@ public class MovementScript : MonoBehaviour
 
     void DecelerationCycle()
     {
-        if (velocity.magnitude != 0)
+        if (!stoped)
         {
-            float speed = velocity.magnitude;
-            velocity *= (speed - deceleration * Time.deltaTime) / speed;
+            if (velocity.magnitude != 0)
+            {
+                stoped = false;
+                float speed = velocity.magnitude;
+                velocity *= (speed - deceleration * Time.deltaTime) / speed;
+            }
+            else
+            {
+                stoped = true;
+                EndMovement();
+            }
         }
     }
 
-    public void AddSpeed(Vector3 newVelocity)
+    public void SetVelocity(Vector3 newVelocity)
     {
-        velocity += newVelocity;
+        velocity = newVelocity;
+        stoped = false;
+    }
+
+    public void EndMovement()
+    {
+        manager.ObjectStoped();
     }
 }

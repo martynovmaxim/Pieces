@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public MovementScript movement;
     public GameObject Arrow;
     GameObject ArrowChild;
+    MeshRenderer arrowRender;
 
     public PlayerInput controls;
 
@@ -17,8 +18,8 @@ public class PlayerController : MonoBehaviour
 
     float speed;
     public float speedIncrease;
-    public float minSpeed = 0f;
-    public float maxSpeed = 15f;
+    public float minLaunchSpeed = 1f;
+    public float maxLaunchSpeed = 15f;
 
     public float rotationSpeed;
 
@@ -34,53 +35,61 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         controls = new PlayerInput();
-        controls.GameInput.Rotate.performed += ctx => Rotate(ctx.ReadValue<float>());
         controls.GameInput.Charge.performed += _ => Charge();
         controls.GameInput.Launch.performed += _ => Launch();
+        ArrowChild = Arrow.transform.GetChild(0).gameObject;
+        arrowRender = ArrowChild.GetComponent<MeshRenderer>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        ArrowChild = Arrow.transform.GetChild(0).gameObject;
+
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        //read values
+        //Debug.Log(arrowRender.enabled);
+        //Space
         if (pressedSpace)
         {
-            speed = Mathf.Clamp(speed + speedIncrease * Time.deltaTime, minSpeed, maxSpeed);
-            Debug.Log(speed);
+            speed = Mathf.Clamp(speed + speedIncrease * Time.deltaTime, minLaunchSpeed, maxLaunchSpeed);
+            arrowRender.material.SetFloat("Value", speed / maxLaunchSpeed);
+            Debug.Log(speed/maxLaunchSpeed);
         }
-        float value = controls.GameInput.Rotate.ReadValue<float>();
-        Arrow.transform.Rotate(0, 0, rotationSpeed * -value * Time.deltaTime);
-        //
+        //rot
+        float rotDir = controls.GameInput.Rotate.ReadValue<float>() * -1;
+        if (rotDir != 0) Arrow.transform.Rotate(0, 0, rotationSpeed * rotDir * Time.deltaTime);
 
     }
 
     void Launch()
     {
-        Debug.Log("LAUNCH!");
+        //Debug.Log("LAUNCH!");
         pressedSpace = false;
-        movement.velocity = Arrow.transform.up * speed;
-        //Debug.Log(Arrow.transform.up);
+        movement.SetVelocity(Arrow.transform.up * speed);
         speed = 0;
-        ArrowChild.GetComponent<MeshRenderer>().enabled = false;
+        DisableControls();
     }
 
     void Charge()
     {
-        Debug.Log("Start charging");
+        //Debug.Log("Start charging");
         pressedSpace = true;
     }
-    void Rotate(float value)
+
+    public void EnableControls()
     {
-        ArrowChild.GetComponent<MeshRenderer>().enabled = true;
-        //if (ArrowChild == null) Debug.Log("!!!!!!");
-        //float z = Arrow.transform.rotation.z;
-        //Arrow.transform.Rotate(0, 0, rotationSpeed * -value);
-        //Debug.Log("Rot " + z);
+        controls.Enable();
+        arrowRender.enabled = true;
+    }
+
+    public void DisableControls()
+    {
+        controls.Disable();
+        Debug.Log("Enabling controls");
+        arrowRender.enabled = false;
     }
 }

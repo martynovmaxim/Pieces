@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 6335798139398192158}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -211,7 +211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: {x: 0, y: 0, z: 0}
-  initVel: {x: 2, y: 0, z: 0}
+  initVel: {x: 0, y: 0, z: 0}
   deceleration: 1
 --- !u!114 &6335798139398192158
 MonoBehaviour:
