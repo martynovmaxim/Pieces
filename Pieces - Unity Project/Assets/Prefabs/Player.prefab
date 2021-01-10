@@ -226,6 +226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {fileID: 1951294499}
+  Arrow: {fileID: 6201646604407119744}
   speedIncrease: 3
   minSpeed: 0
   maxSpeed: 15
@@ -335,7 +336,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7564562310565803195}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 {
 
     public MovementScript movement;
+    public GameObject Arrow;
 
     public PlayerInput controls;
 
