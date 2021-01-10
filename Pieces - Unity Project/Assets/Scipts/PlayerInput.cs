@@ -59,7 +59,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""name"": ""Axis"",
                     ""id"": ""e50a5ec0-ee2d-4c17-afed-64461d853b8b"",
                     ""path"": ""1DAxis"",
-                    ""interactions"": """",
+                    ""interactions"": ""Hold,Press"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Rotate"",

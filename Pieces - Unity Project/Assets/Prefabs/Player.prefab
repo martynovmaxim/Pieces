@@ -212,7 +212,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocity: {x: 0, y: 0, z: 0}
   initVel: {x: 2, y: 0, z: 0}
-  deceleration: 0
+  deceleration: 1
 --- !u!114 &6335798139398192158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,6 +230,7 @@ MonoBehaviour:
   speedIncrease: 3
   minSpeed: 0
   maxSpeed: 15
+  rotationSpeed: 45
 --- !u!1 &5423639801247808465
 GameObject:
   m_ObjectHideFlags: 0
@@ -278,7 +279,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5423639801247808465}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
