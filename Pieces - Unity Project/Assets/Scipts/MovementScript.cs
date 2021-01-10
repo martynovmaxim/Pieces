@@ -29,30 +29,6 @@ public class MovementScript : MonoBehaviour
         MovementCycle();
         DecelerationCycle();
     }
-
-    public void OnCollisionEnter(Collision collision)
-    {
-        MovementScript others = collision.gameObject.GetComponent<MovementScript>();
-        if (others != null)
-        {
-            Vector3 delta = velocity - others.velocity;
-            if (delta.x > 0 || delta.y > 0)
-            {
-                float speed = ((velocity + others.velocity) / 2).magnitude;
-                velocity = Vector3.Reflect(velocity, collision.GetContact(0).normal).normalized * speed;
-            }
-            else
-            {
-                float speed = ((velocity + others.velocity) / 2).magnitude;
-                velocity = Vector3.Reflect(velocity, collision.GetContact(0).normal).normalized * speed;
-                others.velocity = Vector3.Reflect(others.velocity, collision.GetContact(0).normal * -1).normalized * speed;
-            }               
-        }
-        else
-        {
-            velocity = Vector3.Reflect(velocity, collision.GetContact(0).normal);
-        }
-    }
         
     private void MovementCycle()
     {
@@ -65,9 +41,8 @@ public class MovementScript : MonoBehaviour
         {
             if (velocity.magnitude != 0)
             {
-                stoped = false;
                 float speed = velocity.magnitude;
-                velocity *= (speed - deceleration * Time.deltaTime) / speed;
+                velocity *= (Mathf.Clamp(speed - deceleration * Time.deltaTime, 0, 5000)) / speed;
             }
             else
             {
@@ -86,5 +61,29 @@ public class MovementScript : MonoBehaviour
     public void EndMovement()
     {
         manager.ObjectStoped();
+    }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        MovementScript others = collision.gameObject.GetComponent<MovementScript>();
+        if (others != null)
+        {
+            Vector3 delta = velocity - others.velocity;
+            if (delta.x > 0 || delta.y > 0)
+            {
+                float speed = ((velocity + others.velocity) / 2).magnitude;
+                velocity = Vector3.Reflect(velocity, collision.GetContact(0).normal).normalized * speed;
+            }
+            else
+            {
+                float speed = ((velocity + others.velocity) / 2).magnitude;
+                velocity = Vector3.Reflect(velocity, collision.GetContact(0).normal).normalized * speed;
+                others.velocity = Vector3.Reflect(others.velocity, collision.GetContact(0).normal * -1).normalized * speed;
+            }
+        }
+        else
+        {
+            velocity = Vector3.Reflect(velocity, collision.GetContact(0).normal);
+        }
     }
 }

@@ -57,7 +57,6 @@ public class PlayerController : MonoBehaviour
         {
             speed = Mathf.Clamp(speed + speedIncrease * Time.deltaTime, minLaunchSpeed, maxLaunchSpeed);
             arrowRender.material.SetFloat("Value", speed / maxLaunchSpeed);
-            Debug.Log(speed/maxLaunchSpeed);
         }
         //rot
         float rotDir = controls.GameInput.Rotate.ReadValue<float>() * -1;
@@ -83,13 +82,15 @@ public class PlayerController : MonoBehaviour
     public void EnableControls()
     {
         controls.Enable();
+        Debug.Log("Enabling the controls");
         arrowRender.enabled = true;
     }
 
     public void DisableControls()
     {
         controls.Disable();
-        Debug.Log("Enabling controls");
+        arrowRender.material.SetFloat("Value", 0);
+        Debug.Log("Disabling controls");
         arrowRender.enabled = false;
     }
 }

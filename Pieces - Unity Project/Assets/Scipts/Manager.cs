@@ -23,7 +23,7 @@ public class Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void AddObject(MovementScript obj)
@@ -36,7 +36,7 @@ public class Manager : MonoBehaviour
         bool stop = true;
         foreach (MovementScript obj in movableObjects)
         {
-            if (obj.velocity != Vector3.zero)
+            if (obj.velocity.magnitude != 0)
             {
                 stop = false;
                 break;
