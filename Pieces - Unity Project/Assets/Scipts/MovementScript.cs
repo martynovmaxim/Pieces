@@ -9,9 +9,13 @@ public class MovementScript : MonoBehaviour
     Transform transform;
     public Vector3 velocity;
     public Vector3 initVel;
-    public float deceleration = 0.5f;
+    public float deceleration = 3f
+        ;
+
+    public int id;
 
     bool stoped = true;
+    bool hasContacted;
 
     Manager manager;
 
@@ -33,6 +37,7 @@ public class MovementScript : MonoBehaviour
     private void MovementCycle()
     {
         transform.position += velocity * Time.deltaTime;
+        if (velocity.magnitude > 0f) stoped = false;
     }
 
     void DecelerationCycle()
@@ -46,7 +51,6 @@ public class MovementScript : MonoBehaviour
             }
             else
             {
-                stoped = true;
                 EndMovement();
             }
         }
@@ -55,35 +59,52 @@ public class MovementScript : MonoBehaviour
     public void SetVelocity(Vector3 newVelocity)
     {
         velocity = newVelocity;
+        if (newVelocity != Vector3.zero) stoped = false;
+    }
+
+    public void AddVelocity(Vector3 newVelocity)
+    {
+        velocity += newVelocity;
         stoped = false;
     }
 
     public void EndMovement()
     {
+        stoped = true;
         manager.ObjectStoped();
     }
 
     public void OnCollisionEnter(Collision collision)
     {
-        MovementScript others = collision.gameObject.GetComponent<MovementScript>();
-        if (others != null)
+        if (!hasContacted)
         {
-            Vector3 delta = velocity - others.velocity;
-            if (delta.x > 0 || delta.y > 0)
+            MovementScript others = collision.gameObject.GetComponent<MovementScript>();
+            if (others != null)
             {
-                float speed = ((velocity + others.velocity) / 2).magnitude;
-                velocity = Vector3.Reflect(velocity, collision.GetContact(0).normal).normalized * speed;
+                others.hasContacted = true;
+                Vector3 delta = velocity - others.velocity;
+                if (delta.x > 0 || delta.y > 0)
+                {
+                    float speed = ((velocity + others.velocity) / 2).magnitude;
+                    Vector3 direction = velocity.normalized;
+                    velocity = Vector3.Reflect(velocity, collision.GetContact(0).normal).normalized * speed;
+                    others.AddVelocity(direction * speed);
+                }
+                else
+                {
+                    float speed = ((velocity + others.velocity) / 2).magnitude;
+                    velocity = Vector3.Reflect(velocity, collision.GetContact(0).normal).normalized * speed;
+                    others.velocity = Vector3.Reflect(others.velocity, collision.GetContact(0).normal * -1).normalized * speed;
+                }
             }
             else
             {
-                float speed = ((velocity + others.velocity) / 2).magnitude;
-                velocity = Vector3.Reflect(velocity, collision.GetContact(0).normal).normalized * speed;
-                others.velocity = Vector3.Reflect(others.velocity, collision.GetContact(0).normal * -1).normalized * speed;
+                velocity = Vector3.Reflect(velocity, collision.GetContact(0).normal);
             }
         }
         else
         {
-            velocity = Vector3.Reflect(velocity, collision.GetContact(0).normal);
+            hasContacted = false;
         }
     }
 }
