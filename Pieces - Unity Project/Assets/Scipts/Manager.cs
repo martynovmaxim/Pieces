@@ -5,10 +5,13 @@ using UnityEngine;
 public class Manager : MonoBehaviour
 {
     public List<MovementScript> movableObjects;
+    List<MovementScript> stopedObjects;
+
+    List<GoalPlace> goals;
 
     PlayerController player;
 
-    List<MovementScript> stopedObjects;
+    
     // Start is called before the first frame update
     private void Awake()
     {
@@ -48,5 +51,10 @@ public class Manager : MonoBehaviour
     public void AllObjectsStopeed()
     {
         player.EnableControls();
+    }
+
+    public void GoalComplete()
+    {
+
     }
 }

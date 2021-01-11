@@ -22,8 +22,10 @@ public class GoalPlace : MonoBehaviour
         if (objective != null)
         {
             float alpha = Mathf.Clamp((Time.time - contactTime) / timeToLerp, 0, 1);
+            alpha *= alpha;
             Debug.Log(alpha);
             objective.transform.position = Vector3.Lerp(objectivePos, transform.position, alpha);
+            if (alpha == 1) objective = null;
         }
     }
 
