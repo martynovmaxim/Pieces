@@ -349,7 +349,6 @@ GameObject:
   - component: {fileID: 1549980809}
   - component: {fileID: 1549980808}
   - component: {fileID: 1549980812}
-  - component: {fileID: 1549980813}
   m_Layer: 0
   m_Name: Figure 1
   m_TagString: Untagged
@@ -449,22 +448,6 @@ MonoBehaviour:
   initVel: {x: 0, y: 0, z: 0}
   deceleration: 3
   id: 1
---- !u!54 &1549980813
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1549980807}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 120
-  m_CollisionDetection: 0
 --- !u!1 &1995611154
 GameObject:
   m_ObjectHideFlags: 0
@@ -498,7 +481,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 1
-  timeToLerp: 0.5
+  time: 0.25
 --- !u!65 &1995611156
 BoxCollider:
   m_ObjectHideFlags: 0
