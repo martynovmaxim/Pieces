@@ -48,11 +48,17 @@ public class PlayerController : MonoBehaviour
         
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log(movement.velocity);
+    }
+
     // Update is called once per frame
     void Update()
     {
         //Debug.Log(arrowRender.enabled);
         //Space
+        
         if (pressedSpace)
         {
             speed = Mathf.Clamp(speed + speedIncrease * Time.deltaTime, minLaunchSpeed, maxLaunchSpeed);
