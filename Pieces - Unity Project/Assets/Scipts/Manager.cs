@@ -7,7 +7,7 @@ public class Manager : MonoBehaviour
     public List<MovementScript> movableObjects;
     List<MovementScript> stopedObjects;
 
-    List<GoalPlace> goals;
+    public List<GoalPlace> goals;
 
     PlayerController player;
 
@@ -53,8 +53,28 @@ public class Manager : MonoBehaviour
         player.EnableControls();
     }
 
+    public void AddGoal(GoalPlace newGoal)
+    {
+        goals.Add(newGoal);
+    }
+
     public void GoalComplete()
     {
+        bool LevelCompleted = true;
+        foreach (GoalPlace goal in goals)
+        {
+            if (!goal.finished) 
+            {
+                LevelCompleted = false;
+                break;
+            }
+        }
+        if (LevelCompleted) LevelFinished();
+    }
 
+    void LevelFinished()
+    {
+        GameObject exit = GameObject.FindGameObjectWithTag("Exit");
+        exit.transform.position = exit.transform.position + new Vector3(0, 50, 0);
     }
 }

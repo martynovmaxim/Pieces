@@ -8,24 +8,33 @@ public class GoalPlace : MonoBehaviour
     public float timeToLerp = 0.5f;
 
     MovementScript objective;
+    Manager manager;
+
     Vector3 objectivePos;
     float contactTime;
+
+    public bool finished;
     // Start is called before the first frame update
     void Start()
     {
-
+        manager = GameObject.FindGameObjectWithTag("Manager").GetComponent<Manager>();
+        manager.AddGoal(this);    
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (objective != null)
+        if (objective != null && !finished)
         {
             float alpha = Mathf.Clamp((Time.time - contactTime) / timeToLerp, 0, 1);
             alpha *= alpha;
             Debug.Log(alpha);
             objective.transform.position = Vector3.Lerp(objectivePos, transform.position, alpha);
-            if (alpha == 1) objective = null;
+            if (alpha == 1)
+            {
+                finished = true;
+                manager.GoalComplete();
+            }
         }
     }
 

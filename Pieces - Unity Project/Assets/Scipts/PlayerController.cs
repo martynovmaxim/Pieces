@@ -88,7 +88,7 @@ public class PlayerController : MonoBehaviour
     public void EnableControls()
     {
         controls.Enable();
-        Debug.Log("Enabling the controls");
+        //Debug.Log("Enabling the controls");
         arrowRender.enabled = true;
     }
 
@@ -96,7 +96,7 @@ public class PlayerController : MonoBehaviour
     {
         controls.Disable();
         arrowRender.material.SetFloat("Value", 0);
-        Debug.Log("Disabling controls");
+        //Debug.Log("Disabling controls");
         arrowRender.enabled = false;
     }
 }
