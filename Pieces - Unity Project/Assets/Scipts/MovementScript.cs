@@ -76,35 +76,28 @@ public class MovementScript : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        if (!hasContacted)
+        MovementScript others = collision.gameObject.GetComponent<MovementScript>();
+        if (others != null && velocity.magnitude > others.velocity.magnitude)
         {
-            MovementScript others = collision.gameObject.GetComponent<MovementScript>();
-            if (others != null)
+            others.hasContacted = true;
+            Vector3 delta = velocity - others.velocity;
+            if (delta.x > 0 || delta.y > 0)
             {
-                others.hasContacted = true;
-                Vector3 delta = velocity - others.velocity;
-                if (delta.x > 0 || delta.y > 0)
-                {
-                    float speed = ((velocity + others.velocity) / 2).magnitude;
-                    Vector3 direction = velocity.normalized;
-                    velocity = Vector3.Reflect(velocity, collision.GetContact(0).normal).normalized * speed;
-                    others.AddVelocity(direction * speed);
-                }
-                else
-                {
-                    float speed = ((velocity + others.velocity) / 2).magnitude;
-                    velocity = Vector3.Reflect(velocity, collision.GetContact(0).normal).normalized * speed;
-                    others.velocity = Vector3.Reflect(others.velocity, collision.GetContact(0).normal * -1).normalized * speed;
-                }
+                float speed = ((velocity + others.velocity) / 2).magnitude;
+                Vector3 direction = velocity.normalized;
+                velocity = Vector3.Reflect(velocity, collision.GetContact(0).normal).normalized * speed;
+                others.AddVelocity(direction * speed);
             }
             else
             {
-                velocity = Vector3.Reflect(velocity, collision.GetContact(0).normal);
+                float speed = ((velocity + others.velocity) / 2).magnitude;
+                velocity = Vector3.Reflect(velocity, collision.GetContact(0).normal).normalized * speed;
+                others.velocity = Vector3.Reflect(others.velocity, collision.GetContact(0).normal * -1).normalized * speed;
             }
         }
         else
         {
-            hasContacted = false;
+            velocity = Vector3.Reflect(velocity, collision.GetContact(0).normal);
         }
     }
 }

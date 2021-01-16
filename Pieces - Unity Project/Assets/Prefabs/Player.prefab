@@ -212,7 +212,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocity: {x: 0, y: 0, z: 0}
   initVel: {x: 0, y: 0, z: 0}
-  deceleration: 1
+  deceleration: 3
+  id: 0
 --- !u!114 &6335798139398192158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,10 +228,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movement: {fileID: 1951294499}
   Arrow: {fileID: 6201646604407119744}
-  speedIncrease: 3
-  minSpeed: 0
-  maxSpeed: 15
-  rotationSpeed: 45
+  speedIncrease: 10
+  minLaunchSpeed: 1
+  maxLaunchSpeed: 15
+  rotationSpeed: 90
 --- !u!1 &5423639801247808465
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,7 +243,6 @@ GameObject:
   - component: {fileID: 4339711036967491225}
   - component: {fileID: 7853614274032852975}
   - component: {fileID: 2080727178790312323}
-  - component: {fileID: 5734487417549588182}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -313,20 +313,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &5734487417549588182
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5423639801247808465}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &6201646604407119744
 GameObject:
   m_ObjectHideFlags: 0
