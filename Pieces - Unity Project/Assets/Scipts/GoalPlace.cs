@@ -18,6 +18,7 @@ public class GoalPlace : MonoBehaviour
     void Start()
     {
         manager = GameObject.FindGameObjectWithTag("Manager").GetComponent<Manager>();
+        manager.AddGoal(this);    
     }
 
     // Update is called once per frame

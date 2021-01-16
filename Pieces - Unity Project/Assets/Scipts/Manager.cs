@@ -7,7 +7,7 @@ public class Manager : MonoBehaviour
     public List<MovementScript> movableObjects;
     List<MovementScript> stopedObjects;
 
-    List<GoalPlace> goals;
+    public List<GoalPlace> goals;
 
     PlayerController player;
 
@@ -51,6 +51,11 @@ public class Manager : MonoBehaviour
     public void AllObjectsStopeed()
     {
         player.EnableControls();
+    }
+
+    public void AddGoal(GoalPlace newGoal)
+    {
+        goals.Add(newGoal);
     }
 
     public void GoalComplete()
