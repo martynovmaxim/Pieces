@@ -13,7 +13,7 @@ public class GoalPlace : MonoBehaviour
     Vector3 objectivePos;
     float contactTime;
 
-    bool finished;
+    public bool finished;
     // Start is called before the first frame update
     void Start()
     {
