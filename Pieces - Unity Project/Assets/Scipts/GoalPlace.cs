@@ -33,6 +33,7 @@ public class GoalPlace : MonoBehaviour
             if (alpha == 1)
             {
                 finished = true;
+                gameObject.GetComponent<MeshRenderer>().enabled = false;
                 manager.GoalComplete();
             }
         }
@@ -50,6 +51,20 @@ public class GoalPlace : MonoBehaviour
                 objectivePos = obj.transform.position;
                 contactTime = Time.time;
                 obj.SetVelocity(Vector3.zero);
+            }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        MovementScript obj = other.gameObject.GetComponent<MovementScript>();
+        if (obj != null)
+        {
+            if (id == obj.id)
+            {
+                objective = null;
+                finished = false;
+                gameObject.GetComponent<MeshRenderer>().enabled = true;
             }
         }
     }
