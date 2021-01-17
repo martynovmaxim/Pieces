@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class MovementScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-
     Transform transform;
     public Vector3 velocity;
     public Vector3 initVel;
-    public float deceleration = 3f
-        ;
+    public float deceleration = 3f;
+
+    AudioSource audioData;
 
     public int id;
 
@@ -21,13 +21,13 @@ public class MovementScript : MonoBehaviour
 
     void Start()
     {
+        audioData = GetComponent<AudioSource>();
         manager = GameObject.FindGameObjectWithTag("Manager").GetComponent<Manager>();
         manager.AddObject(this);
         transform = gameObject.GetComponent<Transform>();
         velocity = initVel;
     }
 
-    // Update is called once per frame
     void Update()
     {
         MovementCycle();

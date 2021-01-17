@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(AudioSource))]
 public class PlayerController : MonoBehaviour
 {
 
@@ -10,6 +11,8 @@ public class PlayerController : MonoBehaviour
     public GameObject Arrow;
     GameObject ArrowChild;
     MeshRenderer arrowRender;
+
+    AudioSource audioData;
 
     public PlayerInput controls;
 
@@ -44,8 +47,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-        
+        audioData = GetComponent<AudioSource>();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -53,18 +55,13 @@ public class PlayerController : MonoBehaviour
         Debug.Log(movement.velocity);
     }
 
-    // Update is called once per frame
     void Update()
-    {
-        //Debug.Log(arrowRender.enabled);
-        //Space
-        
+    {        
         if (pressedSpace)
         {
             speed = Mathf.Clamp(speed + speedIncrease * Time.deltaTime, minLaunchSpeed, maxLaunchSpeed);
             arrowRender.material.SetFloat("Value", speed / maxLaunchSpeed);
         }
-        //rot
         float rotDir = controls.GameInput.Rotate.ReadValue<float>() * -1;
         if (rotDir != 0) Arrow.transform.Rotate(0, 0, rotationSpeed * rotDir * Time.deltaTime);
 
@@ -72,7 +69,6 @@ public class PlayerController : MonoBehaviour
 
     void Launch()
     {
-        //Debug.Log("LAUNCH!");
         pressedSpace = false;
         movement.SetVelocity(Arrow.transform.up * speed);
         speed = 0;
@@ -81,14 +77,12 @@ public class PlayerController : MonoBehaviour
 
     void Charge()
     {
-        //Debug.Log("Start charging");
         pressedSpace = true;
     }
 
     public void EnableControls()
     {
         controls.Enable();
-        //Debug.Log("Enabling the controls");
         arrowRender.enabled = true;
     }
 
@@ -96,7 +90,6 @@ public class PlayerController : MonoBehaviour
     {
         controls.Disable();
         arrowRender.material.SetFloat("Value", 0);
-        //Debug.Log("Disabling controls");
         arrowRender.enabled = false;
     }
 }
