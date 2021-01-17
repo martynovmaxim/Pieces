@@ -172,6 +172,8 @@ MonoBehaviour:
   velocity: {x: 0, y: 0, z: 0}
   initVel: {x: 0, y: 0, z: 0}
   deceleration: 3
+  HitWall: {fileID: 8300000, guid: 690591bee145ab74f917e4480ab1cbfa, type: 3}
+  HitMovable: {fileID: 8300000, guid: 8913b429fdb93fb4d8375d8bede6a08e, type: 3}
   id: 0
 --- !u!114 &6335798139398192158
 MonoBehaviour:
@@ -187,6 +189,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movement: {fileID: 1951294499}
   Arrow: {fileID: 6201646604407119744}
+  BallShoot: {fileID: 0}
   speedIncrease: 10
   minLaunchSpeed: 1
   maxLaunchSpeed: 15
@@ -201,8 +204,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 73e9c6d292f67564e98fb38b33d76c7d, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

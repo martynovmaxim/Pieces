@@ -10,7 +10,10 @@ public class MovementScript : MonoBehaviour
     public Vector3 initVel;
     public float deceleration = 3f;
 
+    //Audio
     AudioSource audioData;
+    public AudioClip HitWall;
+    public AudioClip HitMovable;
 
     public int id;
 
@@ -74,6 +77,12 @@ public class MovementScript : MonoBehaviour
         manager.ObjectStoped();
     }
 
+    void PlayHitSound(AudioClip sound)
+    {
+        audioData.clip = sound;
+        audioData.Play();
+    }
+
     public void OnCollisionEnter(Collision collision)
     {
         if (hasContacted)
@@ -86,6 +95,7 @@ public class MovementScript : MonoBehaviour
         {
             
             others.hasContacted = true;
+            PlayHitSound(HitMovable);
             Vector3 delta = velocity - others.velocity;
             if (delta.x > 0 || delta.y > 0)
             {
@@ -104,6 +114,7 @@ public class MovementScript : MonoBehaviour
         }
         else
         {
+            PlayHitSound(HitWall);
             velocity = Vector3.Reflect(velocity, collision.GetContact(0).normal);
         }
     }

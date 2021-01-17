@@ -132,6 +132,8 @@ MonoBehaviour:
   velocity: {x: 0, y: 0, z: 0}
   initVel: {x: 0, y: 0, z: 0}
   deceleration: 3
+  HitWall: {fileID: 8300000, guid: dbf574547d39e3047b00a217cdd6225d, type: 3}
+  HitMovable: {fileID: 8300000, guid: 8913b429fdb93fb4d8375d8bede6a08e, type: 3}
   id: 0
 --- !u!64 &7888434227932598573
 MeshCollider:
