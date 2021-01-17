@@ -76,9 +76,15 @@ public class MovementScript : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
+        if (hasContacted)
+        {
+            hasContacted = false;
+            return;
+        }
         MovementScript others = collision.gameObject.GetComponent<MovementScript>();
         if (others != null && velocity.magnitude > others.velocity.magnitude)
         {
+            
             others.hasContacted = true;
             Vector3 delta = velocity - others.velocity;
             if (delta.x > 0 || delta.y > 0)
@@ -86,6 +92,7 @@ public class MovementScript : MonoBehaviour
                 float speed = ((velocity + others.velocity) / 2).magnitude;
                 Vector3 direction = velocity.normalized;
                 velocity = Vector3.Reflect(velocity, collision.GetContact(0).normal).normalized * speed;
+                Debug.DrawLine(transform.position, transform.position + collision.GetContact(0).normal * 15, Color.red, 150);
                 others.AddVelocity(direction * speed);
             }
             else
