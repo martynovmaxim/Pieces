@@ -9,6 +9,8 @@ public class Manager : MonoBehaviour
 
     public List<GoalPlace> goals;
 
+    public string NextLevelName;
+
     PlayerController player;
 
     

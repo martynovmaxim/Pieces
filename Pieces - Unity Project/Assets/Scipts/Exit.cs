@@ -9,7 +9,6 @@ public class Exit : MonoBehaviour
     // Start is called before the first frame update
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("FINE");
-        SceneManager.LoadScene(NextLevelName);
+        SceneManager.LoadScene(GameObject.FindGameObjectWithTag("Manager").GetComponent<Manager>().NextLevelName);
     }
 }
