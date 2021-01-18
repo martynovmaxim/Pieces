@@ -3,5 +3,8 @@ Here are the detailed info about when to play each sound effect file:
 BallHitsPiece: when the ball hits a mobile piece
 BallHitsWall: when the ball hits a wall
 BallShoot: when the ball is shot and starts moving towards a certain direction
+LevelComplete: when the mobile is fixed successfully and the level is completed
+LevelFail: when the player fails to fix a mobile and the level is restarted
+PieceGoesInPlace: when a piece goes in its place on the mobile
 PieceHitsWall: when a mobile piece hits a wall
 ShootPowerRiser (1-8): when the power of the shot to the ball is being determined (after determining the direction and before shooting the ball)
