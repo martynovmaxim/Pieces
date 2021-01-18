@@ -22,8 +22,11 @@ public class MovementScript : MonoBehaviour
 
     Manager manager;
 
+    float initialZ;
+
     void Start()
     {
+        initialZ = gameObject.transform.position.z;
         audioData = GetComponent<AudioSource>();
         manager = GameObject.FindGameObjectWithTag("Manager").GetComponent<Manager>();
         manager.AddObject(this);
@@ -36,7 +39,14 @@ public class MovementScript : MonoBehaviour
         MovementCycle();
         DecelerationCycle();
     }
-        
+
+    private void LateUpdate()
+    {
+        Vector3 newPos = gameObject.transform.position;
+        newPos.z = initialZ;
+        gameObject.transform.position = newPos;
+    }
+
     private void MovementCycle()
     {
         transform.position += velocity * Time.deltaTime;

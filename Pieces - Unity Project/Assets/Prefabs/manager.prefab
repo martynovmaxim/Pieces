@@ -57,3 +57,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movableObjects: []
+  goals: []
+  JumpLimits: 5
+  NextLevelName: Level 1

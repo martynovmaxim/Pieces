@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Manager : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class Manager : MonoBehaviour
     List<MovementScript> stopedObjects;
 
     public List<GoalPlace> goals;
+
+    public int JumpLimits = 5;
 
     public string NextLevelName;
 
@@ -52,7 +55,9 @@ public class Manager : MonoBehaviour
 
     public void AllObjectsStopeed()
     {
-        player.EnableControls();
+        JumpLimits--;
+        if (JumpLimits >= 0) player.EnableControls();
+        else SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void AddGoal(GoalPlace newGoal)
