@@ -10,7 +10,12 @@ public class Manager : MonoBehaviour
 
     public List<GoalPlace> goals;
 
+    public AudioClip LevelFailedSound;
+    public AudioClip LevelCompletedSound;
+    AudioSource audioData;
+
     public int JumpLimits = 5;
+    bool failed = false;
 
     public string NextLevelName;
 
@@ -24,6 +29,7 @@ public class Manager : MonoBehaviour
     }
     void Start()
     {
+        audioData = gameObject.GetComponent<AudioSource>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         player.EnableControls();
     }
@@ -56,8 +62,8 @@ public class Manager : MonoBehaviour
     public void AllObjectsStopeed()
     {
         JumpLimits--;
-        if (JumpLimits >= 0) player.EnableControls();
-        else SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        if (JumpLimits >= 0 && !failed) player.EnableControls();
+        else LevelFailed();
     }
 
     public void AddGoal(GoalPlace newGoal)
@@ -83,5 +89,24 @@ public class Manager : MonoBehaviour
     {
         GameObject exit = GameObject.FindGameObjectWithTag("Exit");
         exit.transform.position = exit.transform.position + new Vector3(0, 50, 0);
+        audioData.clip = LevelCompletedSound;
+        audioData.Play();
     }
+
+    public void LevelFailed()
+    {
+        if (failed) return;
+        failed = true;
+        Debug.Log("Failed");
+        audioData.clip = LevelFailedSound;
+        audioData.Play();
+        StartCoroutine(ReloadLevel());
+    }
+
+    IEnumerator ReloadLevel()
+    {
+        yield return new WaitForSeconds(LevelFailedSound.length);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
 }

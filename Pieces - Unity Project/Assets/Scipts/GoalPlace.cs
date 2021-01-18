@@ -9,6 +9,7 @@ public class GoalPlace : MonoBehaviour
 
     MovementScript objective;
     Manager manager;
+    public AudioClip completedSound;
 
     Vector3 objectivePos;
     float contactTime;
@@ -28,10 +29,11 @@ public class GoalPlace : MonoBehaviour
         {
             float alpha = Mathf.Clamp((Time.time - contactTime) / timeToLerp, 0, 1);
             alpha *= alpha;
-            Debug.Log(alpha);
+            //Debug.Log(alpha);
             objective.transform.position = Vector3.Lerp(objectivePos, transform.position, alpha);
             if (alpha == 1)
             {
+                AudioSource.PlayClipAtPoint(completedSound, transform.position);
                 finished = true;
                 gameObject.GetComponent<MeshRenderer>().enabled = false;
                 manager.GoalComplete();
@@ -46,7 +48,7 @@ public class GoalPlace : MonoBehaviour
         {
             if (id == obj.id)
             {
-                Debug.Log("HI THERE");
+                //Debug.Log("HI THERE");
                 objective = obj;
                 objectivePos = obj.transform.position;
                 contactTime = Time.time;

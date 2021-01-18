@@ -58,5 +58,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movableObjects: []
   goals: []
+  LevelFailedSound: {fileID: 8300000, guid: ca15257639eb16f48aaecf3222e17a10, type: 3}
+  LevelCompletedSound: {fileID: 8300000, guid: e0be9a71265388f46934b3a72063ce13, type: 3}
   JumpLimits: 5
-  NextLevelName: Level 1
+  NextLevelName: Level 2

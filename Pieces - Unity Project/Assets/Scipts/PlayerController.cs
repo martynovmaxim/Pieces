@@ -51,11 +51,6 @@ public class PlayerController : MonoBehaviour
         audioData = GetComponent<AudioSource>();
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log(movement.velocity);
-    }
-
     void Update()
     {        
         if (pressedSpace)

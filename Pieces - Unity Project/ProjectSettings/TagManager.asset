@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Manager
   - Exit
+  - BackgroundMusic
   layers:
   - Default
   - TransparentFX

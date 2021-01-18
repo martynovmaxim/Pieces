@@ -14,6 +14,7 @@ public class MovementScript : MonoBehaviour
     AudioSource audioData;
     public AudioClip HitWall;
     public AudioClip HitMovable;
+    public AudioClip Death;
 
     public int id;
 
@@ -112,7 +113,6 @@ public class MovementScript : MonoBehaviour
                 float speed = ((velocity + others.velocity) / 2).magnitude;
                 Vector3 direction = velocity.normalized;
                 velocity = Vector3.Reflect(velocity, collision.GetContact(0).normal).normalized * speed;
-                Debug.DrawLine(transform.position, transform.position + collision.GetContact(0).normal * 15, Color.red, 150);
                 others.AddVelocity(direction * speed);
             }
             else
@@ -124,8 +124,17 @@ public class MovementScript : MonoBehaviour
         }
         else
         {
-            PlayHitSound(HitWall);
-            velocity = Vector3.Reflect(velocity, collision.GetContact(0).normal);
+            Obstacle obstacle = collision.gameObject.GetComponent<Obstacle>();
+            if (obstacle != null && gameObject.GetComponent<PlayerController>() != null)
+            {
+                velocity = Vector3.zero;
+                manager.LevelFailed();
+            }
+            else
+            {
+                PlayHitSound(HitWall);
+                velocity = Vector3.Reflect(velocity, collision.GetContact(0).normal);
+            }
         }
     }
 }
