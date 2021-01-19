@@ -14,7 +14,6 @@ public class MovementScript : MonoBehaviour
     AudioSource audioData;
     public AudioClip HitWall;
     public AudioClip HitMovable;
-    public AudioClip Death;
 
     public int id;
 

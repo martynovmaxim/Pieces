@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_GrayUnlit
-  m_Shader: {fileID: 10755, guid: 0000000000000000f000000000000000, type: 0}
+  m_Name: UnlitTexture
+  m_Shader: {fileID: -6465566751694194690, guid: d865131f6ed29a14b9400909a2ada78f, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -18,9 +18,15 @@ Material:
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs: []
-    m_Floats: []
-    m_Colors:
-    - Color_7B19FB85: {r: 0.4245283, g: 0.4245283, b: 0.4245283, a: 0}
-    - _Color: {r: 0, g: 0, b: 0, a: 1}
+    m_TexEnvs:
+    - _Texture:
+        m_Texture: {fileID: 2800000, guid: 71305732570f6ae4ebecb0863076af07, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_16AE0715: -0.32
+    - Vector1_2E2837A9: 0.93
+    - Vector1_44C39F7D: 0.5
+    - Vector1_CE699A0: 0
+    m_Colors: []
   m_BuildTextureStacks: []

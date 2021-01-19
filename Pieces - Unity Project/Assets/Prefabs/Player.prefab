@@ -174,7 +174,6 @@ MonoBehaviour:
   deceleration: 3
   HitWall: {fileID: 8300000, guid: 690591bee145ab74f917e4480ab1cbfa, type: 3}
   HitMovable: {fileID: 8300000, guid: 8913b429fdb93fb4d8375d8bede6a08e, type: 3}
-  Death: {fileID: 8300000, guid: f2cc49d541fd11c47be46e8fc9648678, type: 3}
   id: 0
 --- !u!114 &6335798139398192158
 MonoBehaviour:
@@ -195,7 +194,7 @@ MonoBehaviour:
   speedIncrease: 10
   minLaunchSpeed: 1
   maxLaunchSpeed: 15
-  rotationSpeed: 90
+  rotationSpeed: 120
 --- !u!82 &8808688362347694732
 AudioSource:
   m_ObjectHideFlags: 0
