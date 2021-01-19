@@ -107,19 +107,19 @@ public class MovementScript : MonoBehaviour
             others.hasContacted = true;
             PlayHitSound(HitMovable);
             Vector3 delta = velocity - others.velocity;
-            if (delta.x > 0 || delta.y > 0)
-            {
+            //if (delta.x > 0 || delta.y > 0)
+            //{
                 float speed = ((velocity + others.velocity) / 2).magnitude;
                 Vector3 direction = velocity.normalized;
                 velocity = Vector3.Reflect(velocity, collision.GetContact(0).normal).normalized * speed;
                 others.AddVelocity(direction * speed);
-            }
-            else
-            {
-                float speed = ((velocity + others.velocity) / 2).magnitude;
-                velocity = Vector3.Reflect(velocity, collision.GetContact(0).normal).normalized * speed;
-                others.velocity = Vector3.Reflect(others.velocity, collision.GetContact(0).normal * -1).normalized * speed;
-            }
+            //}
+            //else
+            //{
+            //    float speed = ((velocity + others.velocity) / 2).magnitude;
+            //    velocity = Vector3.Reflect(velocity, collision.GetContact(0).normal).normalized * speed;
+            //    others.velocity = Vector3.Reflect(others.velocity, collision.GetContact(0).normal * -1).normalized * speed;
+            //}
         }
         else
         {

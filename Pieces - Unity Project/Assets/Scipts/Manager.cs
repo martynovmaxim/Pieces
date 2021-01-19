@@ -112,8 +112,6 @@ public class Manager : MonoBehaviour
 
     void LevelFinished()
     {
-        GameObject exit = GameObject.FindGameObjectWithTag("Exit");
-        exit.transform.position = exit.transform.position + new Vector3(0, 50, 0);
         audioData.clip = LevelCompletedSound;
         audioData.Play();
         whitePlane.GetComponent<MeshRenderer>().enabled = true;

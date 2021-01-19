@@ -1255,7 +1255,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1112921954}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 6e941f417e88c7b40951eb1f706c9232, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: d6b8e11dde4827b4b84e4c77479cb8fd, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -1268,12 +1268,14 @@ VideoPlayer:
   m_DataSource: 0
   m_PlaybackSpeed: 1
   m_AudioOutputMode: 0
-  m_TargetAudioSources: []
-  m_DirectAudioVolumes: []
+  m_TargetAudioSources:
+  - {fileID: 0}
+  m_DirectAudioVolumes:
+  - 1
   m_Url: 
-  m_EnabledAudioTracks: 
-  m_DirectAudioMutes: 
-  m_ControlledAudioTrackCount: 0
+  m_EnabledAudioTracks: 01
+  m_DirectAudioMutes: 00
+  m_ControlledAudioTrackCount: 1
   m_PlayOnAwake: 0
   m_SkipOnDrop: 1
   m_Looping: 1
@@ -2001,7 +2003,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e15298d0839b4c748875fb1effabc393, type: 2}
+  - {fileID: 2100000, guid: 94cc1f0c3e7e3cc499bcfa4a3305ac06, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2039,8 +2041,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1756624641}
   m_LocalRotation: {x: 0, y: 0.70710677, z: -0.70710677, w: 0}
-  m_LocalPosition: {x: -0.027, y: -0.992, z: 8}
-  m_LocalScale: {x: 1.8313392, y: 0.9, z: 1.0828671}
+  m_LocalPosition: {x: 0.937, y: -1.536, z: 8}
+  m_LocalScale: {x: 3.0524666, y: 0.89999986, z: 1.8343285}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 13
@@ -2956,6 +2958,10 @@ PrefabInstance:
       propertyPath: WhatToDestroy.Array.data[7]
       value: 
       objectReference: {fileID: 1885335458}
+    - target: {fileID: 3901412038718369637, guid: deeccc3d1020e074bac186a5d5099cc4, type: 3}
+      propertyPath: NextLevelName
+      value: Level 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3901412038718369638, guid: deeccc3d1020e074bac186a5d5099cc4, type: 3}
       propertyPath: m_Name
       value: manager
