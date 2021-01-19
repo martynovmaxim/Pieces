@@ -13,7 +13,8 @@ public class PlayerController : MonoBehaviour
     MeshRenderer arrowRender;
 
     AudioSource audioData;
-    public AudioClip BallShoot;
+    public AudioClip LaunchSound;
+    public AudioClip ChargeSound;
 
     public PlayerInput controls;
 
@@ -65,7 +66,9 @@ public class PlayerController : MonoBehaviour
 
     void Launch()
     {
-        audioData.clip = BallShoot;
+        audioData.Stop();
+        audioData.clip = LaunchSound;
+        audioData.volume = 1;
         audioData.Play();
         pressedSpace = false;
         movement.SetVelocity(Arrow.transform.up * speed);
@@ -76,6 +79,9 @@ public class PlayerController : MonoBehaviour
     void Charge()
     {
         pressedSpace = true;
+        audioData.clip = ChargeSound;
+        audioData.volume = 0.75f;
+        audioData.Play();
     }
 
     public void EnableControls()

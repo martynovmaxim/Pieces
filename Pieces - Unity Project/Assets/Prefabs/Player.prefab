@@ -174,6 +174,7 @@ MonoBehaviour:
   deceleration: 3
   HitWall: {fileID: 8300000, guid: 690591bee145ab74f917e4480ab1cbfa, type: 3}
   HitMovable: {fileID: 8300000, guid: 8913b429fdb93fb4d8375d8bede6a08e, type: 3}
+  Death: {fileID: 8300000, guid: f2cc49d541fd11c47be46e8fc9648678, type: 3}
   id: 0
 --- !u!114 &6335798139398192158
 MonoBehaviour:
@@ -189,7 +190,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movement: {fileID: 1951294499}
   Arrow: {fileID: 6201646604407119744}
-  BallShoot: {fileID: 0}
+  LaunchSound: {fileID: 8300000, guid: 73e9c6d292f67564e98fb38b33d76c7d, type: 3}
+  ChargeSound: {fileID: 8300000, guid: e4c95e9c799591246a70f798e4ab72e6, type: 3}
   speedIncrease: 10
   minLaunchSpeed: 1
   maxLaunchSpeed: 15
@@ -207,7 +209,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 73e9c6d292f67564e98fb38b33d76c7d, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 1
+  m_Pitch: 1.03
   Loop: 0
   Mute: 0
   Spatialize: 0

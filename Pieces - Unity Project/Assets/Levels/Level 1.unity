@@ -1827,7 +1827,7 @@ GameObject:
   - component: {fileID: 1683829208}
   - component: {fileID: 1683829207}
   m_Layer: 0
-  m_Name: _ase
+  m_Name: MobileSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2470,14 +2470,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 664124929, guid: eaf82701558ee8042a65197109afcacb, type: 3}
-      propertyPath: m_Constraints
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 1951294499, guid: eaf82701558ee8042a65197109afcacb, type: 3}
-      propertyPath: Death
-      value: 
-      objectReference: {fileID: 8300000, guid: f2cc49d541fd11c47be46e8fc9648678, type: 3}
     - target: {fileID: 723384517657324182, guid: eaf82701558ee8042a65197109afcacb, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.97
@@ -2525,14 +2517,6 @@ PrefabInstance:
     - target: {fileID: 723384517657324187, guid: eaf82701558ee8042a65197109afcacb, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 6335798139398192158, guid: eaf82701558ee8042a65197109afcacb, type: 3}
-      propertyPath: BallShoot
-      value: 
-      objectReference: {fileID: 8300000, guid: 73e9c6d292f67564e98fb38b33d76c7d, type: 3}
-    - target: {fileID: 8808688362347694732, guid: eaf82701558ee8042a65197109afcacb, type: 3}
-      propertyPath: m_Pitch
-      value: 1.03
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eaf82701558ee8042a65197109afcacb, type: 3}
@@ -2591,6 +2575,10 @@ PrefabInstance:
       propertyPath: Death
       value: 
       objectReference: {fileID: 8300000, guid: ca15257639eb16f48aaecf3222e17a10, type: 3}
+    - target: {fileID: 3901412038718369637, guid: deeccc3d1020e074bac186a5d5099cc4, type: 3}
+      propertyPath: JumpLimits
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3901412038718369638, guid: deeccc3d1020e074bac186a5d5099cc4, type: 3}
       propertyPath: m_Name
       value: manager
