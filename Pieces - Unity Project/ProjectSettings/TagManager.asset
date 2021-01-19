@@ -8,6 +8,7 @@ TagManager:
   - Exit
   - BackgroundMusic
   - Video
+  - WhitePlane
   layers:
   - Default
   - TransparentFX

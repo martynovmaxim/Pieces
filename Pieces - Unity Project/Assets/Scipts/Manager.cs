@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Video;
 
 public class Manager : MonoBehaviour
 {
@@ -16,10 +17,17 @@ public class Manager : MonoBehaviour
 
     public int JumpLimits = 5;
     bool failed = false;
+    bool finished = false;
 
     public string NextLevelName;
 
     PlayerController player;
+
+    GameObject video;
+    GameObject whitePlane;
+    public float AlphaDecrease = 1;
+    public List<GameObject> WhatToDestroy;
+    
 
     
     // Start is called before the first frame update
@@ -32,12 +40,29 @@ public class Manager : MonoBehaviour
         audioData = gameObject.GetComponent<AudioSource>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         player.EnableControls();
+        whitePlane = GameObject.FindGameObjectWithTag("WhitePlane");
+        video = GameObject.FindGameObjectWithTag("Video");
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (finished)
+        {
+            MeshRenderer meshRenderer =  whitePlane.GetComponent<MeshRenderer>();
+            float alpha = meshRenderer.material.GetFloat("Alpha");
+            if (alpha != 0)
+            {
+                float newAlpha = Mathf.Clamp(alpha - AlphaDecrease * Time.deltaTime, 0, 100);
+                whitePlane.GetComponent<MeshRenderer>().material.SetFloat("Alpha", newAlpha);
+            }
+            else
+            {
+                Destroy(whitePlane);
+                this.enabled = false;
+            }
+            
+        }
     }
 
     public void AddObject(MovementScript obj)
@@ -91,6 +116,14 @@ public class Manager : MonoBehaviour
         exit.transform.position = exit.transform.position + new Vector3(0, 50, 0);
         audioData.clip = LevelCompletedSound;
         audioData.Play();
+        whitePlane.GetComponent<MeshRenderer>().enabled = true;
+        finished = true;
+        video.GetComponent<MeshRenderer>().enabled = true;
+        video.GetComponent<VideoPlayer>().Play();
+        foreach (GameObject obj in WhatToDestroy)
+        {
+            Destroy(obj);
+        }
     }
 
     public void LevelFailed()
