@@ -1222,6 +1222,11 @@ Transform:
   m_Father: {fileID: 731427576}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1011537101 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7651002180227744326, guid: df761b2ecd782494f89ea4782beeec34, type: 3}
+  m_PrefabInstance: {fileID: 1310375555}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1017501016 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3976551317035569526, guid: 2eabc7960bacc2e4da882f2946e9c804, type: 3}
@@ -1255,7 +1260,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1112921954}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: d6b8e11dde4827b4b84e4c77479cb8fd, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: f8396af99b53cbe43a34e19bb903987d, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -1268,14 +1273,12 @@ VideoPlayer:
   m_DataSource: 0
   m_PlaybackSpeed: 1
   m_AudioOutputMode: 0
-  m_TargetAudioSources:
-  - {fileID: 0}
-  m_DirectAudioVolumes:
-  - 1
+  m_TargetAudioSources: []
+  m_DirectAudioVolumes: []
   m_Url: 
-  m_EnabledAudioTracks: 01
-  m_DirectAudioMutes: 00
-  m_ControlledAudioTrackCount: 1
+  m_EnabledAudioTracks: 
+  m_DirectAudioMutes: 
+  m_ControlledAudioTrackCount: 0
   m_PlayOnAwake: 0
   m_SkipOnDrop: 1
   m_Looping: 1
@@ -2674,7 +2677,7 @@ GameObject:
   - component: {fileID: 2016196669}
   - component: {fileID: 2016196671}
   m_Layer: 0
-  m_Name: DoNotDestroy
+  m_Name: BackgroundMusic
   m_TagString: BackgroundMusic
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2692,7 +2695,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 32a786f4041ebb74c944b7c9fde00f19, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.73
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2962,6 +2965,10 @@ PrefabInstance:
       propertyPath: NextLevelName
       value: Level 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3901412038718369637, guid: deeccc3d1020e074bac186a5d5099cc4, type: 3}
+      propertyPath: WhatToDestroy.Array.data[8]
+      value: 
+      objectReference: {fileID: 1011537101}
     - target: {fileID: 3901412038718369638, guid: deeccc3d1020e074bac186a5d5099cc4, type: 3}
       propertyPath: m_Name
       value: manager
