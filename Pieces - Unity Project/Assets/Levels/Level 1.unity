@@ -2957,15 +2957,27 @@ PrefabInstance:
       objectReference: {fileID: 1885335458}
     - target: {fileID: 3901412038718369637, guid: deeccc3d1020e074bac186a5d5099cc4, type: 3}
       propertyPath: NextLevelName
-      value: Level 1
+      value: Level 2
       objectReference: {fileID: 0}
     - target: {fileID: 3901412038718369637, guid: deeccc3d1020e074bac186a5d5099cc4, type: 3}
       propertyPath: WhatToDestroy.Array.data[8]
       value: 
       objectReference: {fileID: 1011537101}
+    - target: {fileID: 3901412038718369637, guid: deeccc3d1020e074bac186a5d5099cc4, type: 3}
+      propertyPath: JumpLimits
+      value: 50000
+      objectReference: {fileID: 0}
     - target: {fileID: 3901412038718369638, guid: deeccc3d1020e074bac186a5d5099cc4, type: 3}
       propertyPath: m_Name
       value: manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 3901412038718369639, guid: deeccc3d1020e074bac186a5d5099cc4, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6151267052589756130, guid: deeccc3d1020e074bac186a5d5099cc4, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: deeccc3d1020e074bac186a5d5099cc4, type: 3}

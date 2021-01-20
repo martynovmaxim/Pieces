@@ -87,7 +87,7 @@ public class Manager : MonoBehaviour
     public void AllObjectsStopeed()
     {
         JumpLimits--;
-        if (JumpLimits >= 0 && !failed) player.EnableControls();
+        if ((JumpLimits >= 0 && !failed) || finished) player.EnableControls();
         else LevelFailed();
     }
 
