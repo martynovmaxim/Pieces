@@ -17,7 +17,7 @@ public class Manager : MonoBehaviour
 
     public int JumpLimits = 5;
     bool failed = false;
-    bool finished = false;
+    public bool finished = false;
 
     public string NextLevelName;
 
