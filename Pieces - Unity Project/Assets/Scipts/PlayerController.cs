@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
     }
 
     void Update()
-    {        
+    {
         if (pressedSpace)
         {
             speed = Mathf.Clamp(speed + speedIncrease * Time.deltaTime, minLaunchSpeed, maxLaunchSpeed);

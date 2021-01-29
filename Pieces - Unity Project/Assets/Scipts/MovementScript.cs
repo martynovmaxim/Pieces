@@ -6,6 +6,7 @@ using UnityEngine;
 public class MovementScript : MonoBehaviour
 {
     Transform transform;
+    Rigidbody rb;
     public Vector3 velocity;
     public Vector3 initVel;
     public float deceleration = 3f;
@@ -32,10 +33,13 @@ public class MovementScript : MonoBehaviour
         manager.AddObject(this);
         transform = gameObject.GetComponent<Transform>();
         velocity = initVel;
+        rb = gameObject.GetComponent<Rigidbody>();
     }
 
     void Update()
     {
+        //Debug.Log(rb.velocity);
+        rb.velocity = Vector3.zero;
         MovementCycle();
         DecelerationCycle();
     }
