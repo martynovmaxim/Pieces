@@ -190,7 +190,7 @@ MonoBehaviour:
   movement: {fileID: 1951294499}
   Arrow: {fileID: 6201646604407119744}
   LaunchSound: {fileID: 8300000, guid: 73e9c6d292f67564e98fb38b33d76c7d, type: 3}
-  ChargeSound: {fileID: 8300000, guid: e4c95e9c799591246a70f798e4ab72e6, type: 3}
+  ChargeSound: {fileID: 8300000, guid: 60e65512e6b8c2246b2c177aab0d14a5, type: 3}
   speedIncrease: 10
   minLaunchSpeed: 1
   maxLaunchSpeed: 15
