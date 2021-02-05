@@ -19,7 +19,7 @@ public class MovementScript : MonoBehaviour
     public int id;
 
     bool stoped = true;
-    bool hasContacted;
+    public bool hasContacted;
 
     Manager manager;
 
@@ -96,34 +96,37 @@ public class MovementScript : MonoBehaviour
         audioData.clip = sound;
         audioData.Play();
     }
-
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        Debug.Log(gameObject.name + " HIT!");
+    }
     public void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("Collision Enter: " + gameObject.name);
         if (hasContacted)
         {
             hasContacted = false;
             return;
         }
         MovementScript others = collision.gameObject.GetComponent<MovementScript>();
-        if (others != null && velocity.magnitude > others.velocity.magnitude)
+        if (others != null)
         {
-            
-            others.hasContacted = true;
-            PlayHitSound(HitMovable);
-            Vector3 delta = velocity - others.velocity;
-            //if (delta.x > 0 || delta.y > 0)
-            //{
+            if (velocity.magnitude > others.velocity.magnitude)
+            {
+                others.hasContacted = !others.hasContacted;
+                PlayHitSound(HitMovable);
+                Vector3 delta = velocity - others.velocity;
+                //if (delta.x > 0 || delta.y > 0)
+                //{
                 float speed = ((velocity + others.velocity) / 2).magnitude;
                 Vector3 direction = velocity.normalized;
                 velocity = Vector3.Reflect(velocity, collision.GetContact(0).normal).normalized * speed;
                 others.AddVelocity(direction * speed);
-            //}
-            //else
-            //{
-            //    float speed = ((velocity + others.velocity) / 2).magnitude;
-            //    velocity = Vector3.Reflect(velocity, collision.GetContact(0).normal).normalized * speed;
-            //    others.velocity = Vector3.Reflect(others.velocity, collision.GetContact(0).normal * -1).normalized * speed;
-            //}
+            }
+            else
+            {
+                hasContacted = true;
+            }
         }
         else
         {
@@ -135,6 +138,7 @@ public class MovementScript : MonoBehaviour
             }
             else
             {
+                Debug.Log("WallHit: " + gameObject.name);
                 PlayHitSound(HitWall);
                 velocity = Vector3.Reflect(velocity, collision.GetContact(0).normal);
             }
