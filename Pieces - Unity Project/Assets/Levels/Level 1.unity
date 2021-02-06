@@ -2814,6 +2814,14 @@ PrefabInstance:
       propertyPath: deceleration
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 723384516264232461, guid: eaf82701558ee8042a65197109afcacb, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 723384516264232461, guid: eaf82701558ee8042a65197109afcacb, type: 3}
+      propertyPath: m_FlipY
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 723384517657324182, guid: eaf82701558ee8042a65197109afcacb, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.25
@@ -2873,6 +2881,18 @@ PrefabInstance:
     - target: {fileID: 723384517657324187, guid: eaf82701558ee8042a65197109afcacb, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2080727178790312323, guid: eaf82701558ee8042a65197109afcacb, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4339711036967491225, guid: eaf82701558ee8042a65197109afcacb, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 4339711036967491225, guid: eaf82701558ee8042a65197109afcacb, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6335798139398192158, guid: eaf82701558ee8042a65197109afcacb, type: 3}
       propertyPath: maxLaunchSpeed
