@@ -4,15 +4,7 @@ using UnityEngine;
 
 public class Spring : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public float SpeedAddition = 10f;
+    public AudioClip SpringSound;
+    public Animator animation;
 }

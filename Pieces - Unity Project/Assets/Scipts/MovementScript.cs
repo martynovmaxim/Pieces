@@ -138,10 +138,21 @@ public class MovementScript : MonoBehaviour
             }
             else
             {
-                Debug.Log("WallHit: " + gameObject.name);
-                PlayHitSound(HitWall);
-                velocity = Vector3.Reflect(velocity, collision.GetContact(0).normal);
+                Spring spring = collision.gameObject.GetComponent<Spring>();
+                if (spring != null)
+                {
+                    velocity = Vector3.Reflect(velocity, collision.GetContact(0).normal);
+                    velocity *= (velocity.magnitude + spring.SpeedAddition)/velocity.magnitude;
+                    spring.animation.Play("Spring");
+                }
+                else
+                {
+                    Debug.Log("WallHit: " + gameObject.name);
+                    PlayHitSound(HitWall);
+                    velocity = Vector3.Reflect(velocity, collision.GetContact(0).normal);
+                }
             }
         }
+
     }
 }
