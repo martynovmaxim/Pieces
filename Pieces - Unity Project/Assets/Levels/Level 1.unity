@@ -2812,7 +2812,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1951294499, guid: eaf82701558ee8042a65197109afcacb, type: 3}
       propertyPath: deceleration
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 723384516264232461, guid: eaf82701558ee8042a65197109afcacb, type: 3}
       propertyPath: m_FlipX
@@ -2900,11 +2900,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6335798139398192158, guid: eaf82701558ee8042a65197109afcacb, type: 3}
       propertyPath: maxLaunchSpeed
-      value: 20
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 6335798139398192158, guid: eaf82701558ee8042a65197109afcacb, type: 3}
       propertyPath: minLaunchSpeed
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eaf82701558ee8042a65197109afcacb, type: 3}
