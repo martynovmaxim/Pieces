@@ -60,7 +60,11 @@ public class PlayerController : MonoBehaviour
             arrowRender.material.SetFloat("Value", speed / maxLaunchSpeed);
         }
         float rotDir = controls.GameInput.Rotate.ReadValue<float>() * -1;
-        if (rotDir != 0) Arrow.transform.Rotate(0, 0, rotationSpeed * rotDir * Time.deltaTime);
+        if (rotDir != 0)
+        {
+            Arrow.transform.Rotate(0, 0, rotationSpeed * rotDir * Time.deltaTime);
+
+        }
 
     }
 
