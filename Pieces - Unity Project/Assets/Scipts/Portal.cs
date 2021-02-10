@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class Portal : MonoBehaviour
 {
+    public Portal AnotherPortal;
+    GameObject ignore;
     // Start is called before the first frame update
-    void Start()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.gameObject == ignore) return;
+        MovementScript obj = other.gameObject.GetComponent<MovementScript>();
+        if (obj != null)
+        {
+            AnotherPortal.ignore = other.gameObject;
+            obj.gameObject.transform.position = AnotherPortal.gameObject.transform.position;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerExit(Collider other)
     {
-        
+        ignore = null;
     }
 }
