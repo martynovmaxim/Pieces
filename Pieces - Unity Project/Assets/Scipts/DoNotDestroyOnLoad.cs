@@ -12,7 +12,8 @@ public class DoNotDestroyOnLoad : MonoBehaviour
 
         if (objs.Length > 1)
         {
-            Destroy(this.gameObject);
+            if (objs[0].GetComponent<AudioSource>().clip == gameObject.GetComponent<AudioSource>().clip) Destroy(this.gameObject);
+            else Destroy(objs[0]);
         }
         DontDestroyOnLoad(this.gameObject);
     }
