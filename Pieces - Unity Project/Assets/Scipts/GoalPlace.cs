@@ -53,6 +53,8 @@ public class GoalPlace : MonoBehaviour
                 objectivePos = obj.transform.position;
                 contactTime = Time.time;
                 obj.SetVelocity(Vector3.zero);
+                obj.enabled = false;
+                obj.gameObject.GetComponent<Rigidbody>().isKinematic = true;
             }
         }
     }

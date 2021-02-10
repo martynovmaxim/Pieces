@@ -75,7 +75,7 @@ public class Manager : MonoBehaviour
         bool stop = true;
         foreach (MovementScript obj in movableObjects)
         {
-            if (obj.velocity.magnitude != 0)
+            if (obj.velocity.magnitude != 0 && obj.enabled)
             {
                 stop = false;
                 break;
