@@ -26,7 +26,7 @@ Material:
     m_Floats:
     - Vector1_16AE0715: -0.81
     - Vector1_2E2837A9: 1.14
-    - Vector1_44C39F7D: 0.5
-    - Vector1_CE699A0: 0.9
+    - Vector1_44C39F7D: 0.9
+    - Vector1_CE699A0: 1
     m_Colors: []
   m_BuildTextureStacks: []
