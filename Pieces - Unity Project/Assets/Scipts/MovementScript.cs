@@ -144,6 +144,7 @@ public class MovementScript : MonoBehaviour
                     velocity = Vector3.Reflect(velocity, collision.GetContact(0).normal);
                     velocity *= Mathf.Clamp( (velocity.magnitude + spring.SpeedAddition), 0, 20)   /velocity.magnitude;
                     spring.animation.Play("Spring");
+                    spring.gameObject.GetComponent<AudioSource>().Play();
                 }
                 else
                 {

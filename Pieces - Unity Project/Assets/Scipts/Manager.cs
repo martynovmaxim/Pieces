@@ -122,6 +122,7 @@ public class Manager : MonoBehaviour
         {
             Destroy(obj);
         }
+        gameObject.GetComponent<JumpLimitsGUI>().enabled = false;
     }
 
     public void LevelFailed()
