@@ -529,7 +529,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fafa4c58a315484084094b2a398fa29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FinishMusic: {fileID: 8300000, guid: f31c9cda014e3cf41ba9a6f529f8f82d, type: 3}
+  FinishMusic: {fileID: 8300000, guid: fd5bbfdc0183a784d9066fd1d3693107, type: 3}
 --- !u!4 &1879076105
 Transform:
   m_ObjectHideFlags: 0
@@ -736,16 +736,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3901412038718369637, guid: deeccc3d1020e074bac186a5d5099cc4, type: 3}
+      propertyPath: WhatToDestroy.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3901412038718369637, guid: deeccc3d1020e074bac186a5d5099cc4, type: 3}
       propertyPath: JumpLimits
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3901412038718369637, guid: deeccc3d1020e074bac186a5d5099cc4, type: 3}
       propertyPath: NextLevelName
-      value: Level 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3901412038718369637, guid: deeccc3d1020e074bac186a5d5099cc4, type: 3}
-      propertyPath: WhatToDestroy.Array.size
-      value: 10
+      value: Level 1
       objectReference: {fileID: 0}
     - target: {fileID: 3901412038718369637, guid: deeccc3d1020e074bac186a5d5099cc4, type: 3}
       propertyPath: WhatToDestroy.Array.data[0]

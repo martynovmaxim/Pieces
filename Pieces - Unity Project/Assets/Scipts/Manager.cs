@@ -61,7 +61,6 @@ public class Manager : MonoBehaviour
                 Destroy(whitePlane);
                 this.enabled = false;
             }
-            
         }
     }
 

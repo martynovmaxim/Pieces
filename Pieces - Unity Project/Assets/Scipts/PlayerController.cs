@@ -65,7 +65,6 @@ public class PlayerController : MonoBehaviour
             Arrow.transform.Rotate(0, 0, rotationSpeed * rotDir * Time.deltaTime);
 
         }
-
     }
 
     void Launch()
